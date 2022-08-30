@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+:root {
+  --color-grey: #d2dadca2;
+  --color-primary-light: #f5f5f5;
+  --border-radius: 8px;
+  --font-family_title: 'Satisfy', cursive;
+}
+body {
+  height: 80vh;
+  background-image: url(./images/image.webp);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.App {
+  text-align: center;
+  color: var(--color-pantone);
+}
+
+/* Navar Style */
+
+.nav_container_style {
+  margin-top: 45px;
+
+  .Navbar {
+    background-color: var(--color-grey);
+
+    .nav-link {
+      color: black;
+      font-size: 25px;
+      margin-right: 25px;
+    }
+  }
+}
+
+// SingUp_form style
+.Container_Signup {
+  background-color: #d2dadca2;
+  border: rgba(114, 107, 107, 0.374) solid 1px;
+  padding: 25px;
+  border-radius: var(--border-radius);
+  margin-top: 100px;
+  box-shadow: -5px -10px 50px 1px rgba(0, 0, 0, 0.263);
+}
+
+//Login _form_style
+
+.login_form_style {
+  display: flex;
+  flex-direction: column;
+  background-color: #d2dadc;
+  border: #128da06c solid 1px;
+  padding: 25px;
+  border-radius: var(--border-radius);
+  margin-top: 100px;
+  box-shadow: -5px -10px 50px 1px rgba(0, 0, 0, 0.263);
+}
+.logo {
+  width: 255px;
+  align-self: center;
+}
