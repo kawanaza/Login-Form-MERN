@@ -1,8 +1,11 @@
-import { useState, useContext } from 'react';
-import '../App.scss';
-import logo from '../images/logo.png';
+import React, { useState, useContext } from 'react';
+import { Redirect } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { UserContext } from '../UserContext';
+import { useNavigate } from 'react-router-dom';
 import Fab from '@mui/material/Fab';
-// Design
+import logos from '../images/logos.png';
+// design
 import {
   TextField,
   InputAdornment,
@@ -14,15 +17,39 @@ import {
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
+// functions
+import { login } from '../api/user';
+
 const Login = () => {
+  const navigate = useNavigate();
+  /* const { user, setUser } = useContext(UserContext); */
+
+  // form states
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await login({ email, password });
+      if (res.error) toast.error(res.error);
+      else {
+        toast.success(res.message);
+        /*  setUser(res.username); */
+        // redirect the user to home
+        navigate('/browser', { replace: true });
+
+             }
+    } catch (err) {
+      toast.error(err);
+    }
+  };
+
   return (
     <div className="login_form_style container col-10 col-sm-8 col-md-6 col-lg-3">
-      <img className="logo" src={logo} alt="logo cod Challenge" />
-
+     
       <div className="text-center mb-5 alert alert-success">
         <label htmlFor="" className="h2">
           Login
@@ -68,11 +95,12 @@ const Login = () => {
       </div>
 
       <div className="text-center mt-4">
-        {/*  <Button variant="contained" disabled={!email || !password}>
-          Submit
-        </Button> */}
-
-        <Fab className="w-50" variant="extended" disabled={!email || !password}>
+        <Fab
+          className="w-50"
+          variant="extended"
+          disabled={!email || !password}
+          onClick={handleLogin}
+        >
           Submit
         </Fab>
       </div>

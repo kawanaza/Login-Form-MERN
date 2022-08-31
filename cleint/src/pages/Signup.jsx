@@ -1,9 +1,12 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import '../App.scss';
 import Fab from '@mui/material/Fab';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import logos from '../images/logos.png';
+
 // Design
 import {
   TextField,
@@ -22,7 +25,8 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import { register } from '../api/user';
 
 const Signup = () => {
-  /* const history = useHistory(); */
+  const navigate = useNavigate();
+
   // form states
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -46,7 +50,7 @@ const Signup = () => {
       else {
         toast.success(res.message);
         // redirect the user to login
-        /* 		history.replace("/login"); */
+        navigate('/login', { replace: true });
       }
     } catch (err) {
       toast.error(err);
@@ -54,7 +58,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="Container_Signup container col-10 col-sm-8 col-md-6 col-lg-3">
+    <div className="container-signup container col-10 col-sm-8 col-md-6 col-lg-3">
       <div className="text-center mb-5 alert alert-success">
         <label htmlFor="" className="h2">
           Sign Up
@@ -200,6 +204,7 @@ const Signup = () => {
 
       <div className="text-center mt-5">
         {/* Button */}
+
         <Fab
           className="w-50"
           variant="extended"

@@ -5,6 +5,8 @@
   --color-primary-light: #f5f5f5;
   --border-radius: 8px;
   --font-family_title: 'Satisfy', cursive;
+  --border-style: #128da06c solid 1px;
+  --background-color: #d2dadc8e;
 }
 body {
   height: 80vh;
@@ -26,6 +28,7 @@ body {
 
   .Navbar {
     background-color: var(--color-grey);
+    height: 45px;
 
     .nav-link {
       color: black;
@@ -36,12 +39,14 @@ body {
 }
 
 // SingUp_form style
-.Container_Signup {
-  background-color: #d2dadca2;
-  border: rgba(114, 107, 107, 0.374) solid 1px;
+.container-signup {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
   padding: 25px;
+  border: var(--border-style);
   border-radius: var(--border-radius);
-  margin-top: 100px;
+  margin-top: 50px;
   box-shadow: -5px -10px 50px 1px rgba(0, 0, 0, 0.263);
 }
 
@@ -50,14 +55,24 @@ body {
 .login_form_style {
   display: flex;
   flex-direction: column;
-  background-color: #d2dadc;
-  border: #128da06c solid 1px;
+  background-color: var(--background-color);
+  border: var(--border-style);
   padding: 25px;
   border-radius: var(--border-radius);
-  margin-top: 100px;
+  margin-top: 50px;
   box-shadow: -5px -10px 50px 1px rgba(0, 0, 0, 0.263);
 }
+
+//logo nav style
 .logo {
-  width: 255px;
+  width: 150px;
   align-self: center;
+}
+
+//logo sign up style
+.div_logo {
+  display: flex;
+  justify-content: center;
+
+  
 }

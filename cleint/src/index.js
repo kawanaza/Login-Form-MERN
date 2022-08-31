@@ -4,13 +4,14 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { UserContext } from './UserContext';
 
 // components
 import Header from './components/Header';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import { clear } from '@testing-library/user-event/dist/types/utility';
+import Browser from './pages/Browser';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +23,7 @@ root.render(
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/browser" element={<Browser />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

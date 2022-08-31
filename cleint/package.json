@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^14.4.3",
     "bootstrap": "^5.2.0",
     "dotenv": "^16.0.1",
+    "netlify": "^12.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-history-router": "^1.4.1",
